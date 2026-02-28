@@ -135,9 +135,9 @@ export function AllBookingsTable({ data }: { data: any[] }) {
           </table>
         </div>
 
-        {/* Mobile Card View */}
+        {/* Mobile Card View - Clean Layout */}
         <div className="md:hidden divide-y">
-          {filteredData.map((booking: any) => {
+          {filteredData.map((booking) => {
             const statusConfig = {
               pending: { variant: 'pending' as const, label: 'Pending' },
               confirmed: { variant: 'success' as const, label: 'Dikonfirmasi' },
@@ -147,19 +147,44 @@ export function AllBookingsTable({ data }: { data: any[] }) {
 
             return (
               <div key={booking.id} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="font-medium">{booking.roomName || 'Unknown Room'}</p>
+                {/* Header: Room + Status */}
+                <div className="flex items-center justify-between mb-3">
+                  <p className="font-semibold text-base">{booking.roomName || 'Unknown Room'}</p>
                   <Badge variant={config.variant} className="text-xs">
                     {config.label}
                   </Badge>
                 </div>
-                <div className="space-y-1 text-sm text-muted-foreground">
-                  <p>{booking.userName || 'Unknown'}</p>
-                  <p>{format(booking.startTime, 'dd MMM yyyy HH:mm', { locale: id })}</p>
-                  {booking.purpose && (
-                    <p className="text-xs">{booking.purpose}</p>
-                  )}
+
+                {/* User Info */}
+                <div className="mb-2">
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{booking.userName || 'Unknown'}</p>
+                  <p className="text-xs text-muted-foreground">{booking.userEmail || 'Unknown'}</p>
                 </div>
+
+                {/* Date & Time */}
+                <div className="flex items-center gap-4 mb-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>{format(booking.startTime, 'dd MMM yyyy', { locale: id })}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{format(booking.startTime, 'HH:mm')} - {format(booking.endTime, 'HH:mm')}</span>
+                  </div>
+                </div>
+
+                {/* Purpose */}
+                {booking.purpose && (
+                  <div className="mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
+                    <p className="text-xs text-muted-foreground">
+                      <span className="font-medium">Keperluan:</span> {booking.purpose}
+                    </p>
+                  </div>
+                )}
               </div>
             );
           })}
