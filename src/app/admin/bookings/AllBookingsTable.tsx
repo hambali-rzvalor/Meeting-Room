@@ -135,7 +135,7 @@ export function AllBookingsTable({ data }: { data: any[] }) {
           </table>
         </div>
 
-        {/* Mobile Card View - Clean Layout */}
+        {/* Mobile Card View - Compact Layout */}
         <div className="md:hidden divide-y">
           {filteredData.map((booking) => {
             const statusConfig = {
@@ -146,28 +146,27 @@ export function AllBookingsTable({ data }: { data: any[] }) {
             const config = statusConfig[booking.status as keyof typeof statusConfig] || statusConfig.pending;
 
             return (
-              <div key={booking.id} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+              <div key={booking.id} className="p-3 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
                 {/* Header: Room + Status */}
-                <div className="flex items-center justify-between mb-3">
-                  <p className="font-semibold text-base">{booking.roomName || 'Unknown Room'}</p>
-                  <Badge variant={config.variant} className="text-xs">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="font-semibold text-sm">{booking.roomName || 'Unknown Room'}</p>
+                  <Badge variant={config.variant} className="text-[10px] h-5 px-2">
                     {config.label}
                   </Badge>
                 </div>
 
                 {/* User Info */}
                 <div className="mb-2">
-                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{booking.userName || 'Unknown'}</p>
-                  <p className="text-xs text-muted-foreground">{booking.userEmail || 'Unknown'}</p>
+                  <p className="text-xs font-medium text-gray-700 dark:text-gray-300">{booking.userName || 'Unknown'}</p>
                 </div>
 
                 {/* Date & Time */}
-                <div className="flex items-center gap-4 mb-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-3 mb-2 text-[11px] text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>{format(booking.startTime, 'dd MMM yyyy', { locale: id })}</span>
+                    <span>{format(booking.startTime, 'dd MMM', { locale: id })}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,8 +178,8 @@ export function AllBookingsTable({ data }: { data: any[] }) {
 
                 {/* Purpose */}
                 {booking.purpose && (
-                  <div className="mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
-                    <p className="text-xs text-muted-foreground">
+                  <div className="mt-1 pt-2 border-t border-gray-100 dark:border-gray-700">
+                    <p className="text-[11px] text-muted-foreground truncate">
                       <span className="font-medium">Keperluan:</span> {booking.purpose}
                     </p>
                   </div>
