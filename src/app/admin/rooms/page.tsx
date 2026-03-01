@@ -140,7 +140,7 @@ export default function AdminRoomsPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <Navigation />
 
-      <main className="container mx-auto px-4 pt-2 pb-24 sm:pb-8">
+      <main className="container mx-auto px-4 pt-2 pb-28 sm:pb-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

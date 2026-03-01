@@ -9,7 +9,7 @@ export default function AdminBookingsPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <Navigation />
 
-      <main className="container mx-auto px-4 pt-2 pb-24 sm:pb-8">
+      <main className="container mx-auto px-4 pt-2 pb-28 sm:pb-8">
         <div className="mb-4">
           <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-1">
             Kelola Booking

@@ -12,7 +12,7 @@ export default async function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <Navigation />
 
-      <main className="container mx-auto px-4 pt-2 pb-24 sm:pb-8">
+      <main className="container mx-auto px-4 pt-2 pb-28 sm:pb-8">
         {/* Header */}
         <div className="mb-4 sm:mb-8 text-center">
           <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
