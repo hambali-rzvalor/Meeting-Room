@@ -26,7 +26,7 @@ export function RoomCard({ room, index = 0 }: RoomCardProps) {
         ease: 'easeOut',
       }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-gray-800"
+      className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-gray-800 mb-6 sm:mb-0"
     >
       {/* Image Container */}
       <div className="relative h-48 w-full overflow-hidden">

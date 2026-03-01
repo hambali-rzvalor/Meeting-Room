@@ -77,7 +77,7 @@ export function RoomsList({ rooms }: RoomsListProps) {
         />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-8">
         {currentRooms.map((room, index) => (
           <RoomCard key={room.id} room={room} index={index} />
         ))}

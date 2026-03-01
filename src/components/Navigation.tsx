@@ -140,7 +140,7 @@ export function Navigation() {
         </nav>
 
         {/* Mobile Bottom Navigation */}
-        <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t shadow-lg">
+        <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t shadow-lg h-20">
           <div className="grid grid-cols-4 gap-1 p-2">
             {/* Home */}
             <Link href="/" className="flex flex-col items-center justify-center p-2">
