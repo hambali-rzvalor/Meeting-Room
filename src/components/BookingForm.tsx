@@ -76,7 +76,7 @@ export function BookingForm({ roomId, userId }: BookingFormProps) {
       onSubmit={handleSubmit(onSubmit)}
       animate={isShaking ? { x: [-4, 4, -4, 4, -4, 4, 0] } : {}}
       transition={{ duration: 0.5 }}
-      className="space-y-5"
+      className="space-y-5 pb-2"
     >
       {/* Start Time */}
       <div className="space-y-2">
